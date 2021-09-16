@@ -105,3 +105,6 @@ dist
 
 # screenshot directory
 screenshots/
+
+# contents of the output directory
+output/*
