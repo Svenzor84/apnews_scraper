@@ -1,0 +1,28 @@
+{
+  "name": "apnews_scraper",
+  "version": "1.0.0",
+  "description": "A simple Node.js scraper to pull medical articles from apnews.com",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "moment": "^2.29.1",
+    "puppeteer": "^10.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scrape:health": "node article_scraper.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Svenzor84/apnews_scraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Svenzor84/apnews_scraper/issues"
+  },
+  "homepage": "https://github.com/Svenzor84/apnews_scraper#readme"
+}
