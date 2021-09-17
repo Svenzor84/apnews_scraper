@@ -12,7 +12,11 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scrape:health": "node article_scraper.js"
+    "scrape:health": "node article_scraper.js",
+    "scrape:sports": "node article_scraper.js sports",
+    "scrape:politics": "node article_scraper.js politics",
+    "scrape:travel": "node article_scraper.js travel",
+    "scrape:science": "node article_scraper.js science"
   },
   "repository": {
     "type": "git",
