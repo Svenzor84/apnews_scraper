@@ -2,7 +2,6 @@ import { SELECTORS, BASE_URL, BASE_START_HTML, BASE_END_HTML } from './resources
 import Utils from './resources/utils.js';
 import * as cheerio from 'cheerio';
 import puppeteer, * as other from 'puppeteer';
-import * as fs from 'fs';
 
 const utils = new Utils();
 
@@ -44,48 +43,10 @@ try {
     console.log(article_objects);
 
     // Now that we generated our article objects array we want to generate the report html
-    const fileName = `./output/${section}_articles.html`;
-    const stream = fs.createWriteStream(fileName);
+    utils.generateReport(section, article_objects);
 
-    // Write the basic HTML start template to the file
-    stream.write(BASE_START_HTML, 'UTF8');
-
-    // Here is where we build the actual HTML report
-    article_objects.forEach((article) => {
-        stream.write('<div>', 'UTF8');
-        stream.write('<p>', 'UTF8');
-        stream.write(`<a href=${article.link}>${article.title}</a>`, 'UTF8');
-        if (article.authors[0] !== 'no author cited') {
-            stream.write(' by');
-        }
-        article.authors.forEach((author) => {
-            stream.write(` ${author} `);
-        })
-        stream.write('</p>', 'UTF8');
-        stream.write(`<img src=${article.image} >`);
-        stream.write('<p>', 'UTF8');
-        stream.write(`from ${article.datetime_relative} (${article.datetime})`);
-        stream.write('</p>', 'UTF8');
-        stream.write('</div>', 'UTF8');
-    });
-
-    // Write the basic HTML end template to the file
-    stream.write(BASE_END_HTML, 'UTF8');
-
-    // Mark the end of file
-    stream.end();
-
-    // Handle stream events --> finish, and error
-    stream.on('finish', function () {
-        console.log("Write completed.");
-    });
-
-    stream.on('error', function (err) {
-        console.log(err.stack);
-    });
 } catch (error) {
     console.error(error);
 } finally {
     await browser.close();
 }
-
