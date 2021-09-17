@@ -1,0 +1,32 @@
+img {
+    vertical-align: bottom;
+    float: left;
+    clear: both;
+}
+
+hr {
+    clear: both;
+    margin-top: 14em;
+}
+
+.article_title {
+    font-size: 1.5em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.author {
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.datetime {
+    font-style: italic;
+}
