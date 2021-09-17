@@ -5,7 +5,12 @@ import puppeteer, * as other from 'puppeteer';
 
 const utils = new Utils();
 
-const section = 'health';
+// Set the default section to parse and then check for command line arguments
+let section = 'health';
+if (process.argv.length > 2) {
+    section = process.argv[2]
+}
+
 const url = `${BASE_URL}/hub/${section}?utm_source=apnewsnav&utm_medium=sections`;
 
 // Launch a puppeteer browser instance
